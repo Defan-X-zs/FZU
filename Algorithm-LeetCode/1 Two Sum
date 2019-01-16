@@ -1,3 +1,5 @@
+题目链接：https://leetcode-cn.com/problems/two-sum/
+解法1 时间复杂度 O(n²) 
 int* twoSum(int* nums, int numsSize, int target) {
     int i,j;
     int* a = malloc(sizeof(int)*2);//分配
