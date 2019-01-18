@@ -1,5 +1,5 @@
 题目链接：https://leetcode-cn.com/problems/roman-to-integer/
-解法1 时间复杂度  空间复杂度 O(1)
+解法1 语言:C 时间复杂度  空间复杂度 O(1)
 int romanToInt(char* s) {
     int i = 0, num = 0;
     for(; i < strlen(s); i++) {
@@ -35,3 +35,33 @@ int romanToInt(char* s) {
     }
     return num;
 }
+解法2 语言:C++ 时间复杂度  空间复杂度 O(1)
+class Solution {
+public:
+    int romanToInt(string s) {
+        int result = 0;
+        map<char, int> roman_num_map;
+        roman_num_map['I'] = 1;
+        roman_num_map['V'] = 5;
+        roman_num_map['X'] = 10;
+        roman_num_map['L'] = 50;
+        roman_num_map['C'] = 100;
+        roman_num_map['D'] = 500;
+        roman_num_map['M'] = 1000;
+        
+        int size = s.size();
+        for(int i = 0; i < size; i++)
+        {
+            //小的数字位于大的数字左边
+            if(roman_num_map[s[i]] < roman_num_map[s[i + 1]])
+            {
+                result -= roman_num_map[s[i]];
+            }
+            else
+            {
+                 result += roman_num_map[s[i]];
+            }         
+        } 
+        return result;
+    }
+};
