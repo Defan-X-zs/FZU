@@ -35,7 +35,7 @@ int romanToInt(char* s) {
     }
     return num;
 }
-解法2 语言:C++ 时间复杂度  空间复杂度 O(1)
+解法2 语言:C++ 时间复杂度O(s) 空间复杂度 O(1)
 class Solution {
 public:
     int romanToInt(string s) {
