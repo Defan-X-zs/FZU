@@ -1,8 +1,7 @@
 # LeetCode 002
 ## Add Two Numbers
 题目链接：https://leetcode-cn.com/problems/add-two-numbers/
-
-解法1 语言:C 时间复杂度 O( ) 空间复杂度 O( )
+解法1 语言:C 时间复杂度 O(max(m,n)) 空间复杂度 O(max(m,n))
 ```
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     struct ListNode *dummy = malloc(sizeof(struct ListNode)), *p = l1, *q = l2, *curr = malloc(sizeof(struct ListNode));
