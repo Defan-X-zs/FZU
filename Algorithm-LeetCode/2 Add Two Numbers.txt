@@ -1,12 +1,7 @@
-ÌâÄ¿Á´½Ó£ºhttps://leetcode-cn.com/problems/add-two-numbers/
-½â·¨1 ÓïÑÔ:C Ê±¼ä¸´ÔÓ¶È O( ) ¿Õ¼ä¸´ÔÓ¶È O( )
+é¢˜ç›®é“¾æŽ¥ï¼šhttps://leetcode-cn.com/problems/add-two-numbers/
+è§£æ³•1 è¯­è¨€:C æ—¶é—´å¤æ‚åº¦ O( ) ç©ºé—´å¤æ‚åº¦ O( )
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     struct ListNode *dummy = malloc(sizeof(struct ListNode)), *p = l1, *q = l2, *curr = malloc(sizeof(struct ListNode));
-    /*if (l1->val == 0 && l2->val == 0) {
-        dummy->val = 0;
-        dummy->next = NULL;
-        return dummy;
-    }*/
     curr = dummy;
     int carry = 0;
     while (p != NULL || q != NULL) {
