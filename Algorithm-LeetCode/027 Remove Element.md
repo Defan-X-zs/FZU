@@ -4,10 +4,9 @@
 解法1 语言:C 时间复杂度 O(n) 空间复杂度 O(1)
 ```
 int removeElement(int* nums, int numsSize, int val) {
-    int i = 0, j = 0;
-    for (; j < numsSize; j++) {
-        if (nums[j] == val) {}
-        else nums[i++] = nums[j];
+    int i = 0;
+    for (int j = 0; j < numsSize; j++) {
+        if (nums[j] != val) nums[i++] = nums[j];
     }
     return i;
 }
