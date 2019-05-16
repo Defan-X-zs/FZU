@@ -1,4 +1,4 @@
-bool s2(const Student &a, const Student &b) {//6-2 º¯ÊýÖ¸Õë£¨Àí¿ÆÊµÑé°à£©
+bool s2(const Student &a, const Student &b) {//6-2 å‡½æ•°æŒ‡é’ˆï¼ˆç†ç§‘å®žéªŒç­ï¼‰
 	if(a.score[0]+a.score[1] > b.score[0]+b.score[1]) 
 	return true;
 	else return false;

@@ -1,4 +1,4 @@
-int max(int a, int b)//6-1 º¯Êýµ÷ÓÃ
+int max(int a, int b)//6-1 å‡½æ•°è°ƒç”¨
 {
 	return a>b?a:b;
 }
