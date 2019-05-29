@@ -1,4 +1,4 @@
-//6-3 对象指针与对象数组（拉丁舞）
+//6-3 瀵硅薄鎸囬拡涓庡璞℃暟缁勶紙鎷変竵鑸烇級
 void Student::addPair()
 {
 	if(this->pair!=NULL)return; 
@@ -14,7 +14,7 @@ void Student::addPair()
     	 		return;
     		}  
     	}  
-    	for(int j=0;j<2;j++)        //如果期待的名单上未匹配成功，则考虑凑合情况
+    	for(int j=0;j<2;j++)        //濡傛灉鏈熷緟鐨勫悕鍗曚笂鏈尮閰嶆垚鍔燂紝鍒欒�冭檻鍑戝悎鎯呭喌
     	{
        		if(this->welcome[j]->welcome[0]->pair!=NULL && this->welcome[j]->welcome[1]->pair!=NULL && this->welcome[j]->pair==NULL)
         	{

@@ -1,4 +1,4 @@
-//6-4 2017final点的个数
+//6-4 2017final鐐圭殑涓暟
 class Point{
 private:
     int x,y;

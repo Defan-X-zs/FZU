@@ -1,4 +1,4 @@
-//6-1 客户机类
+//6-1 瀹㈡埛鏈虹被
 #include <iostream> 
 #include <stdio.h>
 using namespace std;
