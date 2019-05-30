@@ -11,10 +11,11 @@ class Cstudent {
  		float averagescore;
  		float gradescore;
 	public:
+		static float scorebase[6];
+		static void setscorebase(float s1, float s2, float s3, float s4, float s5, float s6);
 		Cstudent();
  		Cstudent(int stuid,string stuname,
 		 char stugender,int stuage);
- 		Cstudent(const Cstudent &stu);
  		~Cstudent(){;}
  		void SetName(string stuname);
  		void SetID(int stuid);
@@ -31,11 +32,20 @@ class Cstudent {
 int main()
 {
  	Cstudent CS_student[300];
+ 	Cstudent::setscorebase(1.0, 2.0, 3.0, 4.0, 5.0, 6.0);
  	CS_student[1].setCS_student(303001, "zhang", 'M', 21);
- 	CS_student[1].inputscores();//6 score
+ 	CS_student[1].inputscores();
  	CS_student[1].average_score();
  	CS_student[1].grade_compute();
  	CS_student[1].displayinfo(); 
+ 	CS_student[2].SetID(303002);
+ 	CS_student[2].SetName("lin");
+ 	CS_student[2].SetGender('F');
+ 	CS_student[2].SetAge(22);
+ 	CS_student[2].inputscores();
+ 	CS_student[2].average_score();
+ 	CS_student[2].grade_compute();
+ 	CS_student[2].displayinfo();
  	return 0;
 }
 Cstudent::Cstudent() {
@@ -44,12 +54,6 @@ Cstudent::Cstudent() {
 	age = 0;
 	gender = ' ';
 } 
-Cstudent::Cstudent(const Cstudent &stu) {
-	ID = stu.ID;
- 	name = stu.name;
- 	age = stu.age;
- 	gender = stu.gender;
-}
 Cstudent::Cstudent(int stuid,string stuname,
  					char stugender,int stuage) {
 	ID = stuid;
@@ -93,13 +97,22 @@ void Cstudent::ResetInfo(int stuid, string stuname, char stugender, int stuage) 
 	age = stuage;
 }
 void Cstudent::grade_compute() {
-	gradescore = 4.0;
+	float sum = 0;
+	for (int i = 0; i < 6; ++i)
+	{
+		sum += scores[i] * scorebase[i];
+	}
+	gradescore = sum / 10 - 5;
 }
 void Cstudent::setCS_student(int stuid, string stuname, char stugender, int stuage) {
 	ID = stuid;
 	name = stuname;
 	gender = stugender;
 	age = stuage;
+}
+void Cstudent::setscorebase(float s1, float s2, float s3, float s4, float s5, float s6) {
+	scorebase[1] = s1;scorebase[2] = s2;scorebase[3] = s3;
+	scorebase[4] = s4;scorebase[5] = s5;scorebase[6] = s6;
 }
 void Cstudent::displayinfo() {
  	cout<<ID<<" "
