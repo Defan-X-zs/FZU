@@ -40,6 +40,9 @@ int main()
  	CS_student[2].SetName("lin");
  	CS_student[2].SetGender('F');
  	CS_student[2].SetAge(22);
+ 	CS_student[2].inputscores();
+ 	CS_student[2].average_score();
+ 	CS_student[2].grade_compute();
  	CS_student[2].displayinfo();
  	return 0;
 }
