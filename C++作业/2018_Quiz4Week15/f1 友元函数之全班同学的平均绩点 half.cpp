@@ -13,5 +13,6 @@ double averagegrade(student *stu, int count){
 		sumgrade+=persongrade[i];
 		sumscore+=personscore[i];
 	}
-	return sumgrade/sumscore;
+	if (sumscore == 0) return 0;
+	else return sumgrade/sumscore;
 }
