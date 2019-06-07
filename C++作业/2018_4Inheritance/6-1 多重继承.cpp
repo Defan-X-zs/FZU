@@ -4,6 +4,7 @@ using namespace std;
 class Teacher{
 private:
 	string name;
+	
 	int age;
 	string title;
 public:
