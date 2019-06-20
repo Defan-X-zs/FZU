@@ -42,14 +42,19 @@ public:
 };
 int main()
 {
+	Publication* pp[10];
+	int n = 0;
 	int f;
 	string t;float p;int d;float o;int time;
-	//Publication pp[10];
 	cin>>f;
 	while(f)
 	{
-		if(f==1){cin>>t>>p>>d>>o;Book a(t, p, d, o);a.display();}
-		else if(f==2){cin>>t>>p>>d>>time;Tape b(t, p, d, time);b.display();}
+		if(f==1){cin>>t>>p>>d>>o;pp[n++]=new Book(t,p,d,o);}
+		else if(f==2){cin>>t>>p>>d>>time;pp[n++]=new Tape(t,p,d,time);}
 		cin>>f;
+	}
+	for(int i = 0; i < n; i++)
+	{
+		pp[i]->display();
 	}
 }
