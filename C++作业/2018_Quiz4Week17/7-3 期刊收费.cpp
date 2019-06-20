@@ -13,7 +13,7 @@ class Magazine:public Periodical
 public:
 	float price;
 	int qi;
-	Magazine(string title,float price,int qi):Periodical(string),price(price),qi(qi){}
+	Magazine(string title,float price,int qi):Periodical(title),price(price),qi(qi){}
 	void display()
 	{
 		cout<<title;
@@ -24,8 +24,9 @@ class Newspaper:public Periodical
 {
 public:
 	float price;
-	int week,weektime;
-	Newspaper(string title,float price,int week,int weektime):Periodical(string),price(price),week(week),weektime(weektime){}
+	int week;
+    int weektime;
+	Newspaper(string title,float price,int week,int weektime):Periodical(title),price(price),week(week),weektime(weektime){}
 	void display()
 	{
 		cout<<title;
