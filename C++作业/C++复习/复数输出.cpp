@@ -1,0 +1,56 @@
+void print(Fs cc)//复数输出
+{
+		if(cc.real==0)
+		{
+			if(cc.imag==0)
+			{
+				cout<<0<<endl;
+			}
+			else
+			{
+					if(cc.imag==1)
+					{
+						cout<<"i"<<endl; 
+					}
+					else if(cc.imag==-1)
+					{
+						cout<<"-i"<<endl;
+					}
+					else
+					{
+						cout<<cc.imag<<"i"<<endl;
+					}
+			}
+		}
+		else
+		{
+			cout<<cc.real;
+			if(cc.imag>0)
+			{
+					cout<<"+";
+					if(cc.imag==1)
+					{
+						cout<<"i"<<endl; 
+					}
+					else
+					{
+						cout<<cc.imag<<"i"<<endl;
+					}
+			}
+			else if(cc.imag<0)
+			{
+					if(cc.imag==-1)
+					{
+						cout<<"-i"<<endl;
+					}
+					else
+					{
+						cout<<cc.imag<<"i"<<endl;
+					}
+			}
+			else 
+			{
+				cout<<endl;
+			} 
+		}
+}
