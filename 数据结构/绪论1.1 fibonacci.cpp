@@ -6,23 +6,24 @@ int main()
 	int N, A, B;
 	cin>>N>>A>>B;
 	
- 	int num[N], nummax = 0; 
+ 	int res[N], num, p = 1, q = 1, temp;
 	for(int i = 0; i < N; i++) 
 	{
-		cin>>num[i];
-		if (num[i]>nummax);
-		nummax = num[i];
-	}
-	
-	int res[nummax];res[0] = 1;res[1] = 1;
-	for(int i = 2; i <= nummax; i++) 
-	{
-		res[i] = (A*res[i-1]+B*res[i-2])%2013;
+		cin>>num;
+		for(int j = 0; j < num-1; j++)
+		{
+			temp = q;
+			q = A * q + B * p;
+			q%=2013;
+			p = temp;
+		}
+		res[i] = q;
+		p = 1; q = 1;
 	}
 	
 	for(int i = 0; i < N; i++)
 	{
-		cout<<res[num[i]]<<endl;
+		cout<<res[i]<<endl;
 	}
 	return 0;
 }
