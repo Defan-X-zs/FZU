@@ -1,4 +1,4 @@
-#include <iostream>//7-1 ×î³¤Á¬ÐøµÝÔö×ÓÐòÁÐ
+#include <iostream>//week2-2 最长连续递增子序列
 using namespace std;
 int main()
 {
