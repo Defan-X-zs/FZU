@@ -6,8 +6,7 @@ int main()
 	int n;
 	cin>>n;
 	int t;
-	queue<int> a;
-	queue<int> b;
+	queue<int> a, b;
 	for(int i = 0; i < n; i++)
 	{
 		cin>>t;
@@ -27,7 +26,7 @@ int main()
 		{
 			cout<<a.front();
 			a.pop();
-			if(n){cout<<" ";n--}
+			if(n){cout<<" ";n--;}
 		}
 		if(!a.empty()) 
 		{
