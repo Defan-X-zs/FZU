@@ -124,7 +124,7 @@ P_table = [
   19, 13, 30,  6,
   22, 11,  4, 25
 ]
-
+#产生子密钥
 def createSubkeys(inkey):
 	subkeys=[]
 	key0=[0 for i in range(56)]
@@ -154,19 +154,19 @@ def createSubkeys(inkey):
 		tempK = str.join(key1)
 		subkeys.append(tempK)
 	return subkeys
-
+#IP置换
 def IP(intext):
 	res=''
 	for i in range(64):
 		res += intext[IP_table[i]-1]
 	return res
-
+#E拓展置换
 def E_expand(R):
 	res=''
 	for i in range(32):
 		res += R[Eextend_table[i]-1]
 	return res
-
+#S代换
 def S_substitute(Stext):
 	res=''
 	index=0
@@ -182,7 +182,7 @@ def S_substitute(Stext):
 		res += ret
 		index += 6
 	return res
-
+#P变换
 def P(L, S, R):
 	res=''
 	for i in range(32):
@@ -193,14 +193,14 @@ def P(L, S, R):
 		newR = '0' + newR
 	newL = R
 	return (newL, newR)
-
+#逆IP置换
 def IP_inverse(L, R):
 	text = L + R
 	res=''
 	for i in range(64):
 		res += text[_IP_table[i]-1]
 	return res
-
+#DES核心
 def DES(text, key, option=0):
 	subkeys = createSubkeys(key)
 	initTrans = IP(text)
@@ -220,7 +220,7 @@ def DES(text, key, option=0):
 	(L, R) = (R, L)
 	res = IP_inverse(L, R)
 	return res
-
+#字符转二进制
 def byte2bin(s):
 	res=''
 	for i in range(len(s)):
@@ -229,7 +229,7 @@ def byte2bin(s):
 			temp = '0' + temp
 		res += temp
 	return res
-
+#二进制转字符
 def bin2byte(s):
 	res=''
 	for i in range(8):
@@ -237,7 +237,7 @@ def bin2byte(s):
 		ress[i] = int(s[i*8:i*8+8], 2)
 		res += chr(ress[i])
 	return res
-
+#二进制转十六进制
 def bin2hex(s):
 	res=''
 	for i in range(8):
@@ -247,7 +247,7 @@ def bin2hex(s):
 			temp = '0' + temp
 		res += temp
 	return res
-
+#十六进制转二进制
 def hex2bin(s):
 	res=''
 	for i in range(8):
@@ -257,23 +257,26 @@ def hex2bin(s):
 			ress = '0' + ress
 		res+=ress
 	return res
-
+#主函数
 if __name__ == '__main__':
-	option = int(input('请选择功能: (0)加密 (1)解密：'))
-	if option == 0:
-		tmptext = input('请输入8位英文-明文 ：')
-		text = byte2bin(tmptext)
-		tmpkey = input('请输入8位英文-密钥：')
-		key = byte2bin(tmpkey)
-		tmpciphertext = DES(text, key, option)
-		ciphertext = bin2hex(tmpciphertext)
-		print('加密完成-十六进制密文：', ciphertext)
-	if option == 1:
-		tmptext = input('请输入8位十六进制-密文：')
-		text = hex2bin(tmptext)
-		tmpkey = input('请输入8位英文-密钥：')
-		key = byte2bin(tmpkey)
-		tmpcleartext = DES(text, key, option)
-		print('解密完成-明文：', bin2byte(tmpcleartext))
-
+	while 1:
+		option = int(input('请选择功能: (0)加密 (1)解密 (其他数字退出）：'))
+		if option == 0:
+			tmptext = input('请输入8位英文-明文 ：')
+			text = byte2bin(tmptext)
+			tmpkey = input('请输入8位英文-密钥：')
+			key = byte2bin(tmpkey)
+			tmpciphertext = DES(text, key, option)
+			ciphertext = bin2hex(tmpciphertext)
+			print('加密完成-十六进制密文：', ciphertext)
+		elif option == 1:
+			tmptext = input('请输入8位十六进制-密文：')
+			text = hex2bin(tmptext)
+			tmpkey = input('请输入8位英文-密钥：')
+			key = byte2bin(tmpkey)
+			tmpcleartext = DES(text, key, option)
+			print('解密完成-明文：', bin2byte(tmpcleartext))
+		else :
+			print('See You ~~')
+			break
 #defanive

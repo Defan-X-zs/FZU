@@ -37,6 +37,6 @@ int main()
 		}
 		else if(templ==maxlen) maxtime++;//遇到临时长度与maxlen相同时 该长度括号出现的次数maxtime加1
 	}
-	if(maxlen==0) cout<<"0"<<endl<<"1"<<endl;//输出结果
-	else cout<<maxlen<<endl<<maxtime<<endl;
+	if(maxlen==0) cout<<"0"<<endl<<"1";//输出结果
+	else cout<<maxlen<<endl<<maxtime; 
 }
