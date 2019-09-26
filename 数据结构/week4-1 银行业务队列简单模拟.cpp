@@ -1,4 +1,4 @@
-#include<iostream>//7-1 ÒøĞĞÒµÎñ¶ÓÁĞ¼òµ¥Ä£Äâ	
+#include<iostream>//7-1 é“¶è¡Œä¸šåŠ¡é˜Ÿåˆ—ç®€å•æ¨¡æ‹Ÿ
 #include<queue>
 using namespace std;
 int main()
@@ -10,7 +10,7 @@ int main()
 	for(int i = 0; i < n; i++)
 	{
 		cin>>t;
-		if(t%2==1)//ÆæÊı
+		if(t%2==1)//å¥‡æ•°
 		{
 			a.push(t);
 		} 
