@@ -54,6 +54,7 @@ def multiply(x,y):
 def xtime(x):
 	res = ((x<<1) ^ (((x>>7) & 1) * 0x1b))
 	return res%0x100
+#加密
 def encrypt(input_bytes, key):
 	state = [[] for j in range(4)]
 	for r in range(4):
@@ -74,7 +75,7 @@ def encrypt(input_bytes, key):
 		for c in range(4):
 			output[r + 4 * c] = state[r][c]
 	return output
-#加密模块
+#解密
 def decrypt(cipher, key):
 	state = [[] for i in range(4)]
 	for r in range(4):
@@ -221,13 +222,14 @@ def print_message(s):
 	print('解密完成-明文: ',res)
 #main函数
 if __name__ == '__main__':
-	while 1:
+	flag = 1
+	while flag:
 		option = int(input('请选择功能: (0)AES (1)GF(2^8)乘法 (其他数字退出）：'))
 		if option == 0:
 			print('AES128加解密')
 			input_bytes = input('请输入16位英文字符-明文: ')
 			input_bytes = byte2hex(input_bytes)
-			key = input('请输入16位英文字符-密文: ')
+			key = input('请输入16位英文字符-密钥: ')
 			key = byte2hex(key)
 			cipher = encrypt(input_bytes, key)
 			print_cipher(cipher)
@@ -240,4 +242,5 @@ if __name__ == '__main__':
 			print('result:',hex(multiply(x,y))[2:].upper())
 		else :
 			print('See You ~~')
+			flag = 0
 #defanive

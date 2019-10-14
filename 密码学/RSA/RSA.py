@@ -1,5 +1,6 @@
 #RSA by defanive
 import random
+#米勒罗宾概率素性检测
 def miller_rabin_test(n):
 	p = n - 1
 	r = 0
@@ -67,12 +68,7 @@ def createkey(p, q):
 	n = p*q
 	fn = (p-1)*(q-1)
 	e = selectE(fn)
-	a = e
-	b = fn
-	r, x, y = ext_gcd(a, b)
-	d = x
-	if d < 0:
-		d = d + fn
+	d = findD(e, fn)
 	return (n, e, d)
 #确定E
 def selectE(fn):
@@ -83,10 +79,11 @@ def selectE(fn):
 #确定D
 def findD(e, fn):
 	d = 0
-	while True:
-		if (e * d) % fn == 1:
-			return d
-		d += 1
+	r, x, y = ext_gcd(e, fn)
+	d = x
+	if d < 0:
+		d = d + fn
+	return d
 #加密
 def encrypt(m, e, n):
 	c = fastExpMod(m, e, n)
@@ -106,11 +103,12 @@ if __name__ == "__main__":
 	print('n:', n)
 	print('e:', e)
 	print('d:', d)
-	print('请输入长度不超过'+str(len(str(n)))+'位的明文:')
+	print('请输入长度不超过'+str(len(str(n)))+'位的明文(数字):')
 	cleartext = int(input())
-	print('明文为:', cleartext)
+	print('输入的明文为:', cleartext)
 	cipher = encrypt(cleartext, e, n)
 	print('加密完成-密文为:', cipher)
 	message = decrypt(cipher, d, n)
 	print('解密完成-明文为:', message)
 	print('See You ~~')
+#defanive
