@@ -105,7 +105,7 @@ if __name__ == "__main__":
 	print('d:', d)
 	print('请输入长度不超过'+str(len(str(n)))+'位的明文(数字):')
 	cleartext = int(input())
-	print('输入的明文为:', cleartext)
+	print('输入的s明文为:', cleartext)
 	cipher = encrypt(cleartext, e, n)
 	print('加密完成-密文为:', cipher)
 	message = decrypt(cipher, d, n)
